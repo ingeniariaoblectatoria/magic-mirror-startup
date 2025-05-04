@@ -5,7 +5,7 @@ PICOVOICE_ACCESS_KEY=$(cat ~/access_key_picovoice)
 sh ~/start_commands.sh &
 
 #Start http server for Alexa
-cd $HOME/sdk-folder/src/magic-mirror-alexa-smart-screen-web-components/samples/alexa-smart-screen-sample-app/dist/
+cd $HOME/sdk_folder/src/magic-mirror-alexa-smart-screen-web-components/samples/alexa-smart-screen-sample-app/dist/
 python3 -m http.server &
 
 #Start stomp server
@@ -13,11 +13,11 @@ java -jar ~/messaging-stomp-websocket-complete-0.0.1-SNAPSHOT.jar &
 
 #Start voice recognition
 
-sleep 20
+sleep 40
 java -jar ~/MagicMirrorBrain-1.0-SNAPSHOT-jar-with-dependencies.jar $PICOVOICE_ACCESS_KEY &
 
 #Start Chromium
 sleep 20
-firefox "http://localhost:8080" &
+firefox --kiosk "http://localhost:8080" &
 sleep 10
 xdotool search --sync --onlyvisible --name .*Firefox.* key F11

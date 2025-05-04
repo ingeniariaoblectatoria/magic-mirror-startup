@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Exec=/bin/sh /home/dnaro/start_magic_mirror.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=MagicMirror
